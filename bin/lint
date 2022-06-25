@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+commands = ['bundle exec rubocop -A', 'bundle exec erblint --lint-all -a']
+
+threads = commands.map do |c|
+  Thread.new do
+    system(c)
+  end
+end
+
+threads.map(&:join)

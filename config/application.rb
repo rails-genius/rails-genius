@@ -1,6 +1,11 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
+# use https://github.com/bkeepers/dotenv only for local development
+# for production and staging use bin/rails secrets:edit
+Dotenv::Railtie.load if defined? Dotenv
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,5 +23,19 @@ module RailsGenius
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # configure timezone
+    config.time_zone = 'UTC'
+    config.active_record.default_timezone = :utc
+
+    # Internationalization
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}')]
+    config.i18n.default_locale = :en
+
+    # use sidekiq by default
+    config.active_job.queue_adapter = :sidekiq
+
+    # use structure.sql
+    config.active_record.schema_format = :sql
   end
 end

@@ -1,0 +1,55 @@
+name: Github CI
+on: [push]
+
+env:
+  BUNDLE_JOBS: 20
+  BUNDLE_RETRY: 4
+
+jobs:
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run linters
+        run: |
+          bundle exec rubocop --parallel
+      - name: Run security checks
+        run: |
+          bundle exec bundler-audit --update
+          bundle exec brakeman -z
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    env:
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      RAILS_ENV: test
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: rails_genius_test
+          POSTGRES_PASSWORD: "1234"
+        ports: ["5432:5432"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Setup test database
+        run: bin/rails db:create db:schema:load
+      - name: Precompile assets
+        run: bin/rake assets:precompile
+      - name: Run tests
+        run: bin/rails test

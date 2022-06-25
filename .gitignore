@@ -30,3 +30,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 .idea/
+
+# Ignore local env variables files
+.env.development.local
+.env.test.local
