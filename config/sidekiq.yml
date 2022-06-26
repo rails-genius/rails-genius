@@ -1,0 +1,17 @@
+---
+:verbose: false
+:concurrency: 10
+:timeout: 25
+
+:queues:
+  - critical
+  - default
+  - <%= `hostname`.strip %>
+  - low
+
+development:
+  :verbose: true
+production:
+  :concurrency: <%= ENV.fetch('SIDEKIQ_CONCURRENCY') { 25 } %>
+staging:
+  :concurrency: <%= ENV.fetch('SIDEKIQ_CONCURRENCY') { 15 } %>

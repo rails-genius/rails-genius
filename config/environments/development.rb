@@ -72,5 +72,5 @@ Rails.application.configure do
 
   config.importmap.cache_sweepers << Rails.root.join('app/matestack')
 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { host: 'localhost' }
 end

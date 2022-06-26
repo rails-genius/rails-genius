@@ -7,7 +7,7 @@ ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 # gem 'rails', '~> 7.0'
-gem "rails", github: "rails/rails", branch: "main"
+gem 'rails', github: 'rails/rails', branch: 'main'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails', '~> 3.4'
@@ -31,7 +31,7 @@ gem 'stimulus-rails', '~> 1.0'
 gem 'jbuilder', '~> 2.11'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.7'
+gem 'redis', '~> 4.7', require: %w[redis redis/connection/hiredis]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -81,6 +81,8 @@ group :development do
   gem 'annotate', '~> 3.2'
   # Process manager for applications with multiple components
   gem 'foreman', '~> 0.87.2', require: false
+  # sidekiq command for spring
+  gem 'spring-commands-sidekiq', '~> 1.0', require: false
 end
 
 group :development, :test do
@@ -92,6 +94,11 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1', require: false
   # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
   gem 'brakeman', '~> 5.2', '>= 5.2.3', require: false
+end
+
+group :production do
+  # Ruby notifier for bugsnag.com
+  gem 'bugsnag', '~> 6.24', '>= 6.24.2', require: !ENV['BUGSNAG_API_KEY'].nil?
 end
 
 # Eliminate N+1s automatically
@@ -111,4 +118,6 @@ gem 'omniauth', '~> 2.1'
 gem 'sidekiq', '~> 6.5', '>= 6.5.1'
 # Integrate Tailwind CSS with the asset pipeline in Rails.
 gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'
+# Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O)
+gem 'hiredis', '~> 0.6.3'
 ### End Rails Genius

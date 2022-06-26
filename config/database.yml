@@ -1,7 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= (ENV.fetch('RAILS_MAX_THREADS') { 5 }).to_i * (ENV.fetch('WEB_CONCURRENCY') { 1 }).to_i %>
+  pool: <%=
+    # add +4 to support ASYNC
+    server_pool = ((ENV.fetch('RAILS_MAX_THREADS') { 5 }).to_i + 4) * (ENV.fetch('WEB_CONCURRENCY') { 1 }).to_i
+    sidekiq_pool = (ENV.fetch('SIDEKIQ_CONCURRENCY') { 25 }).to_i + 4
+
+    server_pool + sidekiq_pool
+  %>
 
 local_connection: &local_connection
   host: <%= ENV['POSTGRES_HOST'] %>

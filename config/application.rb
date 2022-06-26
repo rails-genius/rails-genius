@@ -40,6 +40,7 @@ module RailsGenius
     # use structure.sql
     config.active_record.schema_format = :sql
 
+    # configure global thread pool for ASYNC
     config.active_record.async_query_executor = :global_thread_pool
   end
 end
