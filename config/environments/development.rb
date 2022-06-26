@@ -71,4 +71,6 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.importmap.cache_sweepers << Rails.root.join('app/matestack')
+
+  config.action_mailer.default_url_options = { :host => 'localhost' }
 end
