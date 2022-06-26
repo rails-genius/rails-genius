@@ -22,7 +22,9 @@ module RailsGenius
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths << Rails.root.join('app', 'matestack', 'pages')
+    config.autoload_paths << Rails.root.join('app', 'matestack', 'layouts')
+    config.autoload_paths << Rails.root.join('app', 'matestack', 'components')
 
     # configure timezone
     config.time_zone = 'UTC'
@@ -37,5 +39,7 @@ module RailsGenius
 
     # use structure.sql
     config.active_record.schema_format = :sql
+
+    config.active_record.async_query_executor = :global_thread_pool
   end
 end

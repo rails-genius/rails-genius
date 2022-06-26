@@ -1,3 +1,9 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+import { createApp } from 'vue';
+import "@hotwired/turbo-rails";
+import MatestackUiVueJs from 'matestack-ui-vuejs';
+
+const appInstance = createApp({});
+
+document.addEventListener('turbo:load', () => {
+    MatestackUiVueJs.mount(appInstance);
+});

@@ -6,7 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0'
+# gem 'rails', '~> 7.0'
+gem "rails", github: "rails/rails", branch: "main"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails', '~> 3.4'
@@ -78,6 +79,8 @@ group :development do
   gem 'erb_lint', '~> 0.1.3', require: false
   # Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.
   gem 'annotate', '~> 3.2'
+  # Process manager for applications with multiple components
+  gem 'foreman', '~> 0.87.2', require: false
 end
 
 group :development, :test do
@@ -99,10 +102,13 @@ gem 'oj', '~> 3.13', '>= 3.13.14'
 # Matestack enables you to craft interactive web UIs without JavaScript in pure Ruby with minimum effort.
 # UI code becomes a native and fun part of your Rails app.
 gem 'matestack-ui-core', '~> 3.0', '>= 3.0.1'
+gem 'matestack-ui-vuejs', '~> 3.1'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.8', '>= 4.8.1'
 # A generalized Rack framework for multiple-provider authentication.
 gem 'omniauth', '~> 2.1'
 # Simple, efficient background processing for Ruby.
 gem 'sidekiq', '~> 6.5', '>= 6.5.1'
+# Integrate Tailwind CSS with the asset pipeline in Rails.
+gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'
 ### End Rails Genius
