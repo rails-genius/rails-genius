@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+# custom registrations controller
 class RegistrationsController < Devise::RegistrationsController
+  # override default create from devise
+  # POST /users
   def create
     build_resource(sign_up_params)
 

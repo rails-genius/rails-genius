@@ -33,10 +33,16 @@
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :trackable,
+  devise :database_authenticatable, # use email/password login
+         :registerable, # enable registration
+         :recoverable, # enable password recovery
+         :rememberable, # add option to remember login
+         :validatable,
+         :confirmable,
+         :trackable,
          :omniauthable
 
+  # Send devise emails using ActiveJob
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end

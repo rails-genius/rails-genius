@@ -127,4 +127,6 @@ gem 'sidekiq', '~> 6.5', '>= 6.5.1'
 gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'
 # Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O)
 gem 'hiredis', '~> 0.6.3'
+# memoize methods invocation
+gem 'memoist', '~> 0.16.2'
 ### End Rails Genius

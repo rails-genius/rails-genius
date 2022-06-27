@@ -1,9 +1,8 @@
 import { createApp } from 'vue';
-import "@hotwired/turbo-rails";
 import MatestackUiVueJs from 'matestack-ui-vuejs';
 
 const appInstance = createApp({});
 
-document.addEventListener('turbo:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     MatestackUiVueJs.mount(appInstance);
 });

@@ -16,3 +16,17 @@ Bundler/OrderedGems:
 
 Lint/Debugger:
   Enabled: true
+
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'db/migrate/*'
+    - 'config/application.rb'
+    - 'app/matestack/**/*'
+
+Style/DocumentationMethod:
+  Enabled: true
+  Exclude:
+    - 'test/**/*'
+    - 'db/migrate/*'
+    - 'app/matestack/**/*'
