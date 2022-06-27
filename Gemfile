@@ -129,4 +129,6 @@ gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'
 gem 'hiredis', '~> 0.6.3'
 # memoize methods invocation
 gem 'memoist', '~> 0.16.2'
+# String enums for Rails
+gem 'str_enum', '~> 0.3.0'
 ### End Rails Genius

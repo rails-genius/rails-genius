@@ -16,9 +16,11 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
+#  name                   :string           default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string           default("standard"), not null
 #  sign_in_count          :integer          default(0), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
@@ -42,8 +44,29 @@ class User < ApplicationRecord
          :trackable,
          :omniauthable
 
+  str_enum :role, %i(standard admin)
+
+  # returns first name
+  # ex name: John Samuel Doe
+  # first_name: John
+  def first_name
+    split_name.first
+  end
+
+  # returns last name
+  # ex name: John Samuel Doe
+  # last_name: Doe
+  def last_name
+    split_name.last
+  end
+
   # Send devise emails using ActiveJob
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
+
+  private
+    def split_name
+      @split_name ||= name.split(' ')
+    end
 end
