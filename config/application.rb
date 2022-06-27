@@ -42,5 +42,13 @@ module RailsGenius
 
     # configure global thread pool for ASYNC
     config.active_record.async_query_executor = :global_thread_pool
+
+    # Configure rails generators
+    config.generators do |g|
+      g.orm             :active_record
+      g.template_engine :erb
+      g.test_framework  :test_unit, fixture: false
+      g.factory_bot dir: 'test/factories', suffix: :factory
+    end
   end
 end

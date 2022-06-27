@@ -10,7 +10,7 @@ if Rails.env.development?
     # same name.
     Annotate.set_defaults(
       'active_admin'                => 'false',
-      'additional_file_patterns'    => [],
+      'additional_file_patterns'    => ['/test/factories/**/%PLURALIZED_MODEL_NAME%_factory.rb'],
       'routes'                      => 'false',
       'models'                      => 'true',
       'position_in_routes'          => 'before',

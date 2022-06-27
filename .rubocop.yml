@@ -7,3 +7,12 @@ Style/StringLiterals:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
+
+Bundler/DuplicatedGem:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Lint/Debugger:
+  Enabled: true

@@ -32,8 +32,8 @@ module Devise
         method: :post,
         path: session_path(resource_name),
         success: {
-          redirect: { # or transition, if your app layout does not change
-                      follow_response: true
+          redirect: {
+            follow_response: true
           }
         },
         failure: {

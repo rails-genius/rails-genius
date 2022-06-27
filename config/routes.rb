@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   # authenticate :user, ->(user) { user.admin? || Other auth related checks... } do  mount Sidekiq::Web => "/sidekiq"end
 
   mount Sidekiq::Web => '/sidekiq'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 end

@@ -9,9 +9,12 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
+#  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
+#  last_sign_in_at        :datetime
+#  last_sign_in_ip        :string
 #  locked_at              :datetime
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime

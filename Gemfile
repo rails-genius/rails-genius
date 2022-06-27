@@ -96,6 +96,13 @@ group :development, :test do
   gem 'brakeman', '~> 5.2', '>= 5.2.3', require: false
 end
 
+group :test do
+  # Cuprite is a driver for Capybara that allows you to run your tests on a headless Chrome browser
+  gem 'cuprite', '~> 0.13'
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
+end
+
 group :production do
   # Ruby notifier for bugsnag.com
   gem 'bugsnag', '~> 6.24', '>= 6.24.2', require: !ENV['BUGSNAG_API_KEY'].nil?
