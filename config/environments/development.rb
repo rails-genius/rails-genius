@@ -3,6 +3,10 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  # Specify AnyCable WebSocket server URL to use by JS client
+  config.after_initialize do
+    config.action_cable.url = ActionCable.server.config.url = ENV.fetch('CABLE_URL', 'ws://localhost:8080/cable') if AnyCable::Rails.enabled?
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -71,12 +75,17 @@ Rails.application.configure do
 
   config.importmap.cache_sweepers << Rails.root.join('app/matestack')
 
+  # configure rails root url for emails
   config.action_mailer.default_url_options = {
     host: URI.parse(ENV['WEB_ROOT_URL']).yield_self do |uri|
       "#{uri.host}:#{uri.port}"
     end
   }
 
+  # catch emails locally and be viewable at http://localhost:1080
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025, domain: '127.0.0.1' }
+
+  # configure action cable with anycable
+  config.action_cable.url = 'ws://localhost:8080/cable'
 end

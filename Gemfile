@@ -135,4 +135,15 @@ gem 'hiredis', '~> 0.6.3'
 gem 'memoist', '~> 0.16.2'
 # String enums for Rails
 gem 'str_enum', '~> 0.3.0'
+# Rails adapter for AnyCable
+gem 'anycable-rails', '~> 1.3', '>= 1.3.4'
+# A HTTP client and server library.
+gem 'async-http', '~> 0.56.6'
+# Provides an adaptor between async-http and faraday.
+gem 'async-http-faraday', '~> 0.11.0'
+# HTTP/REST API client library.
+gem 'faraday', '~> 2.3'
+# An easy-to-use client library for making requests from Ruby.
+# It uses a simple method chaining system for building requests, similar to Python's Requests.
+gem 'http', '~> 5.1'
 ### End Rails Genius

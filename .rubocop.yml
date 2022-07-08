@@ -2,21 +2,30 @@ inherit_gem:
   rubocop-rails_config:
     - config/rails.yml
 
+# use single quotes
 Style/StringLiterals:
   EnforcedStyle: single_quotes
-
+# define classes nested:
+# module MyModule
+#   class MyClass
+#   end
+# end
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
 
+# ensure gems are listed once
 Bundler/DuplicatedGem:
   Enabled: true
 
+# sort gems
 Bundler/OrderedGems:
   Enabled: true
 
+# ensure no binding.pry
 Lint/Debugger:
   Enabled: true
 
+# document classes
 Style/Documentation:
   Enabled: true
   Exclude:
@@ -24,6 +33,7 @@ Style/Documentation:
     - 'config/application.rb'
     - 'app/matestack/**/*'
 
+# document methods
 Style/DocumentationMethod:
   Enabled: true
   Exclude:

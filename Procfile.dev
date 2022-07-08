@@ -1,4 +1,6 @@
 web: bin/rails server -p 3000
 css: bin/rails tailwindcss:watch
 bg: bundle exec sidekiq
-mail: bin/mailcatcher
+mail: bin/mailcatcheranycable: bundle exec anycable
+anycable: bundle exec anycable
+anycable_ws: bin/anycable

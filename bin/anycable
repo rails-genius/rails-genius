@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'pathname'
+
+binary_path = Pathname.new(__dir__).join('..', 'tmp', 'anycable')
+unless File.exist?(binary_path)
+  require 'http'
+  require 'fileutils'
+  puts 'downloading anycable'
+
+  if RUBY_PLATFORM.match?(/linux/)
+    platform = 'linux-amd64'
+  elsif RUBY_PLATFORM.match?(/darwin/)
+    platform = 'darwin-amd64'
+  end
+
+  binary_url = "https://github.com/anycable/anycable-go/releases/download/v1.2.1/anycable-go-#{platform}"
+
+  File.open(binary_path, 'wb') do |file|
+    HTTP.follow.get(binary_url).tap do |resp|
+      file.write(resp.body)
+    end
+  end
+
+  FileUtils.chmod("+x", binary_path)
+end
+
+system "#{binary_path} --host=localhost --port=8080"
