@@ -52,4 +52,4 @@ jobs:
       - name: Precompile assets
         run: bin/rake assets:precompile
       - name: Run tests
-        run: bin/rails test
+        run: bin/rails test:all

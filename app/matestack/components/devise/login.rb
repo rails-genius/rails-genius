@@ -4,6 +4,8 @@ module Devise
   class Login < ApplicationComponent
     def response
       title
+      verify_message
+
       form
 
       rails_render 'devise/shared/links'
@@ -28,7 +30,7 @@ module Devise
 
     def form_config
       {
-        for: resource_name,
+        for: user,
         method: :post,
         path: session_path(resource_name),
         success: {
@@ -40,6 +42,18 @@ module Devise
           emit: 'sign_in_failure'
         }
       }
+    end
+
+    def verify_message
+      return unless user.email
+
+      div do
+        paragraph "Please verify your email: #{user.email}"
+      end
+    end
+
+    def user
+      @user ||= User.new(email: params[:email])
     end
   end
 end

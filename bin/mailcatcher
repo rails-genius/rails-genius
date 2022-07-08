@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# catch and view mails in development
+# http://localhost:1080/
+
+if ! command -v mailcatcher &> /dev/null
+then
+  echo 'installing mailcatcher'
+  gem install mailcatcher --no-ri --no-rdoc
+fi
+
+mailcatcher --foreground

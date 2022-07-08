@@ -101,6 +101,10 @@ group :test do
   gem 'cuprite', '~> 0.13'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem 'factory_bot_rails', '~> 6.2'
+  # The minitest-spec-rails gem makes it easy to use the \ MiniTest::Spec DSL within your existing Rails test suite.
+  gem 'minitest-spec-rails', '~> 6.1'
+  # Ffaker generates dummy data.
+  gem 'ffaker', '~> 2.21'
 end
 
 group :production do
