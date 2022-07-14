@@ -29,6 +29,7 @@ Lint/Debugger:
 Style/Documentation:
   Enabled: true
   Exclude:
+    - 'test/**/*'
     - 'db/migrate/*'
     - 'config/application.rb'
     - 'app/matestack/**/*'

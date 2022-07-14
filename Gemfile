@@ -105,6 +105,9 @@ group :test do
   gem 'minitest-spec-rails', '~> 6.1'
   # Ffaker generates dummy data.
   gem 'ffaker', '~> 2.21'
+  # Mocking and stubbing library with JMock/SchMock syntax, which allows mocking and stubbing of
+  # methods on real (non-mock) classes.
+  gem 'mocha', '~> 1.14'
 end
 
 group :production do
