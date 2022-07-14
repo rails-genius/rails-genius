@@ -38,5 +38,7 @@ FactoryBot.define do
   factory :user do
     email { FFaker::Internet.email }
     name { FFaker::Name.name }
+
+    password { '12345678abcd' }
   end
 end

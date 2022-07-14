@@ -52,6 +52,9 @@ class SampleService < ApplicationService
   validates :last_name, presence: true, length: { minimum: 2 }
 
   class SampleServiceError < ServiceError; end
+  
+  # run the service in background, on the critical queue
+  jobify queue: :critical
 
   # instantiates a new User
   # @return [User]

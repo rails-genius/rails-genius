@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #
-# Service description
+# Run Services in background
 #
 class ApplicationService
   module Jobify

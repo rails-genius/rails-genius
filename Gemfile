@@ -27,9 +27,6 @@ gem 'turbo-rails', '~> 1.1'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails', '~> 1.0'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder', '~> 2.11'
-
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.7', require: %w[redis redis/connection/hiredis]
 
@@ -149,4 +146,8 @@ gem 'faraday', '~> 2.3'
 # An easy-to-use client library for making requests from Ruby.
 # It uses a simple method chaining system for building requests, similar to Python's Requests.
 gem 'http', '~> 5.1'
+# Faster and simpler JSON renderer for Rails
+gem 'jb', '~> 0.8.0'
+# RequestStore gives you per-request global storage.
+gem 'request_store', '~> 1.5', '>= 1.5.1'
 ### End Rails Genius

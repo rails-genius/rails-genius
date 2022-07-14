@@ -9,4 +9,10 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web => '/sidekiq'
   devise_for :users, controllers: { registrations: 'registrations' }
+
+  namespace :api, format: :json do
+    namespace :v1 do
+      root 'base#index'
+    end
+  end
 end

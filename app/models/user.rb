@@ -70,6 +70,14 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
+  class << self
+    # access current user globally, available in requests
+    # @return [User, nil]
+    def current
+      RequestStore.store[:current_user]
+    end
+  end
+
   private
     # @return [Array<String>]
     def split_name
