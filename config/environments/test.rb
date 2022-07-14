@@ -60,4 +60,11 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
   config.factory_bot.definition_file_paths = ['test/factories']
+
+  # configure rails root url for emails
+  config.action_mailer.default_url_options = {
+    host: URI.parse(ENV['WEB_ROOT_URL']).yield_self do |uri|
+      "#{uri.host}:#{uri.port}"
+    end
+  }
 end
