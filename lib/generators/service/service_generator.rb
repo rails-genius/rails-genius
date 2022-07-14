@@ -18,12 +18,12 @@ class ServiceGenerator < Rails::Generators::NamedBase
   def formatted_attributes
     attributes.map { |a| ":#{a.name}" }.join(', ')
   end
-  
+
   # @return [String]
   def error_class_name
-    class_name.split("::").last + "Error"
+    class_name.split('::').last + 'Error'
   end
-  
+
   # @return [Object]
   def full_error_class_name
     class_name + "::#{error_class_name}"
@@ -36,8 +36,8 @@ class ServiceGenerator < Rails::Generators::NamedBase
       generator_path = service_dir_path + "/#{name}.rb"
       generator_dir_path = service_dir_path + "/#{name.split("/")[0..-2].join("/")}"
 
-      Dir.mkdir(service_dir_path) unless File.exist?(service_dir_path)
-      Dir.mkdir(generator_dir_path) unless File.exist?(generator_dir_path)
+      FileUtils.mkdir_p(service_dir_path) unless File.exist?(service_dir_path)
+      FileUtils.mkdir_p(generator_dir_path) unless File.exist?(generator_dir_path)
       template('service_template.erb', generator_path)
     end
 
@@ -47,8 +47,8 @@ class ServiceGenerator < Rails::Generators::NamedBase
       test_generator_path = test_service_dir_path + "/#{name}_test.rb"
       test_generator_dir_path = test_service_dir_path + "/#{name.split("/")[0..-2].join("/")}"
 
-      Dir.mkdir(service_dir_path) unless File.exist?(test_service_dir_path)
-      Dir.mkdir(test_generator_dir_path) unless File.exist?(test_generator_dir_path)
+      FileUtils.mkdir_p(test_service_dir_path) unless File.exist?(test_service_dir_path)
+      FileUtils.mkdir_p(test_generator_dir_path) unless File.exist?(test_generator_dir_path)
 
       template('test_service_template.erb', test_generator_path)
     end

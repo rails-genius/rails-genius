@@ -10,6 +10,7 @@
 #   SampleService.call!(first_name: "John", last_name: "Doe")
 # @see SampleService
 class ApplicationService
+  include Jobify
   include ActiveModel::Validations
 
   # @param [Hash] opts
@@ -20,13 +21,34 @@ class ApplicationService
     end
   end
 
-  # @param [Hash] opts
-  # @raise [ActiveModel::ValidationError]
-  def self.call!(**opts)
-    new(**opts).yield_self do |instance|
-      instance.validate!
-      instance.call
+  class << self
+    # use it to call the service
+    # it's handled in background if jobify is defined
+    #
+    # @param [Hash] opts
+    # @raise [ActiveModel::ValidationError]
+    def call!(**opts)
+      return call_jobify!(**opts) if jobify_options.present?
+      private_call!(**opts)
     end
+    # it's recommended to use call!()
+    # call the service and process it background
+    # @param [Hash] jobify_options pass dynamic options for jobify
+    # @option jobify_options [Symbol] :queue the queue to process: low | default | critical
+    # @param [Hash] opts
+    def call_jobify!(jobify_options: nil, **opts)
+      opts[:jobify_options] = jobify_options || self.jobify_options
+      ApplicationService::Jobify::Enqueue.new(opts, self.name).call
+    end
+
+    protected
+      # don't direct call it
+      def private_call!(**opts)
+        new(**opts).yield_self do |instance|
+          instance.validate!
+          instance.call
+        end
+      end
   end
 
   # @abstract
