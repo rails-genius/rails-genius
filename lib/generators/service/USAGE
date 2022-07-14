@@ -1,0 +1,8 @@
+Description:
+    Generate service
+
+Example:
+    bin/rails generate service Thing
+
+    This will create:
+        app/services/thing.rb

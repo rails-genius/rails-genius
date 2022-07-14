@@ -33,6 +33,7 @@ class ApplicationService
   def call; end
 
   # use this to handle errors
+  # @param [Array] args
   def raise(*args)
     if args[0].is_a?(ActiveModel::ValidationError)
       Kernel.raise args[0]
