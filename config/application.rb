@@ -47,8 +47,10 @@ module RailsGenius
     config.generators do |g|
       g.orm             :active_record
       g.template_engine :erb
+      # use rails test unit
       g.test_framework  :test_unit, fixture: false
-      g.factory_bot dir: 'test/factories', suffix: :factory
+      # configure factory bot
+      g.factory_bot dir: 'test/factories', filename_proc: ->(table_name) { "#{table_name.singularize}_factory" }
     end
   end
 end

@@ -2,6 +2,11 @@
 
 module Api
   module V1
+    # this tests headers, the recommended way to authenticate is using
+    # before do
+    #   sign_in
+    # end
+    # @see test/support/integartion_tests.rb
     class BaseControllerTest < ActionDispatch::IntegrationTest
       describe 'GET /api/v1' do
         let(:key) { create(:api_key) }

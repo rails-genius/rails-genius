@@ -45,6 +45,7 @@ class User < ApplicationRecord
          :omniauthable # use omniauth
 
   str_enum :role, %i(standard admin)
+  has_many :api_keys, dependent: :delete_all
 
   # @example Get first name
   #   "John Samuel Doe" #=> "John"

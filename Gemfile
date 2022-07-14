@@ -91,13 +91,13 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1', require: false
   # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
   gem 'brakeman', '~> 5.2', '>= 5.2.3', require: false
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :test do
   # Cuprite is a driver for Capybara that allows you to run your tests on a headless Chrome browser
   gem 'cuprite', '~> 0.13'
-  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
-  gem 'factory_bot_rails', '~> 6.2'
   # The minitest-spec-rails gem makes it easy to use the \ MiniTest::Spec DSL within your existing Rails test suite.
   gem 'minitest-spec-rails', '~> 6.1'
   # Ffaker generates dummy data.
