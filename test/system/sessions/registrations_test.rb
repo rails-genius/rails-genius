@@ -16,8 +16,6 @@ module Sessions
         fill_in 'password_confirmation', with: password
 
         click_on 'Sign up'
-
-        binding.pry
       end
     end
   end

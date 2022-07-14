@@ -39,33 +39,39 @@ class User < ApplicationRecord
          :registerable, # enable registration
          :recoverable, # enable password recovery
          :rememberable, # add option to remember login
-         :validatable,
-         :confirmable,
-         :trackable,
-         :omniauthable
+         :validatable, # validate the password
+         :confirmable, # require users to confirm their email
+         :trackable, # track user sign ins
+         :omniauthable # use omniauth
 
   str_enum :role, %i(standard admin)
 
-  # returns first name
-  # ex name: John Samuel Doe
-  # first_name: John
+  # @example Get first name
+  #   "John Samuel Doe" #=> "John"
+  # @return [String, nil]
   def first_name
     split_name.first
   end
 
-  # returns last name
-  # ex name: John Samuel Doe
-  # last_name: Doe
+  # @example Get last name
+  #   "John Samuel Doe" #=> "Doe"
+  # @return [String, nil]
   def last_name
     split_name.last
   end
 
   # Send devise emails using ActiveJob
+  # used internally by devise
+  #
+  # @param [Symbol] notification
+  # @param [Array<String, Hash>] args
+  # @return [ActionMailer::MailDeliveryJob]
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
   private
+    # @return [Array<String>]
     def split_name
       @split_name ||= name.split(' ')
     end
