@@ -80,6 +80,9 @@ group :development do
   gem 'foreman', '~> 0.87.2', require: false
   # sidekiq command for spring
   gem 'spring-commands-sidekiq', '~> 1.0', require: false
+  # A single dependency-free binary to manage all your git hooks that works with any language in any environment,
+  # and in all common team workflows.
+  gem 'lefthook', '~> 1.0', '>= 1.0.5', require: false
 end
 
 group :development, :test do

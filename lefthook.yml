@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    audit:
+      run: brakeman --no-pager
+    rubocop:
+      files: git diff --name-only --staged
+      glob: "*.{rb,jb}"
+
+fixer:
+  commands:
+    ruby-fixer:
+      run: bundle exec rubocop --force-exclusion --safe-auto-correct {staged_files}

@@ -243,6 +243,7 @@ GEM
     jit_preloader (2.0.0)
       activerecord (>= 7, < 8)
       activesupport
+    lefthook (1.0.5)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -453,6 +454,7 @@ DEPENDENCIES
   importmap-rails (~> 1.1)
   jb (~> 0.8.0)
   jit_preloader (~> 2.0)
+  lefthook (~> 1.0, >= 1.0.5)
   matestack-ui-core (~> 3.0, >= 3.0.1)
   matestack-ui-vuejs (~> 3.1)
   memoist (~> 0.16.2)
