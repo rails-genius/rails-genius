@@ -83,6 +83,13 @@ group :development do
   # A single dependency-free binary to manage all your git hooks that works with any language in any environment,
   # and in all common team workflows.
   gem 'lefthook', '~> 1.0', '>= 1.0.5', require: false
+  # Provides a better error page for Rails and other Rack apps. Includes source code inspection,
+  # a live REPL and local/instance variable inspection for all stack frames.
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  # Provides the Binding#of_caller method. Using binding_of_caller we can grab bindings from
+  # higher up the call stack and evaluate code in that context. Allows access to bindings arbitrarily far up the call stack,
+  # not limited to just the immediate caller. Recommended for use only in debugging situations. Do not use this in production apps.
+  gem 'binding_of_caller', '~> 1.0'
 end
 
 group :development, :test do
@@ -112,7 +119,7 @@ group :test do
   gem 'minitest-retry', '~> 0.2.2'
 end
 
-group :production do
+group :production, :staging do
   # Ruby notifier for bugsnag.com
   gem 'bugsnag', '~> 6.24', '>= 6.24.2', require: !ENV['BUGSNAG_API_KEY'].nil?
 end

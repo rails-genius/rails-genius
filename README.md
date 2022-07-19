@@ -1,24 +1,27 @@
-# README
+<p align="center">
+  <img src="app/assets/images/rails-genius-logo.png"/>
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A great way to start a fresh rails project from scratch
 
-Things you may want to cover:
+[Quick Start Guide here](docs/quick-start.md)
 
-* Ruby version
+Comes preconfigured with 99% of the stuff you need, such as:
+- staging + product environment set
+- github CI
+- renovate to keep dependencies updated
+- run tests in parallel by default
+- API ready:
+  - json built with JB templates
+  - OJ gem included for extra performance
+  - authentication + Api Keys included
+- Automatically N+1s fixed using [jit preloader](https://github.com/clio/jit_preloader)
+- Bugsnag configured for production and staging 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Some bundled and configured gems:
+- Sidekiq - background jobs
+- Tailwind - styling
+- Matestack - write REACTIVE views with ruby instead of html
+- dotenv - keep ENV variables in .env files
+- anycable - high performance Action Cable Server
+- jb - view engine for 
