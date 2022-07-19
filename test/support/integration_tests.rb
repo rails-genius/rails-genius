@@ -5,7 +5,7 @@ ActionDispatch::IntegrationTest.class_eval do
 
   # use this to test the response body json
   # @return [ActiveSupport::HashWithIndifferentAccess, nil]
-  memoize def json
+  def json
     body = response.body
     return unless body
 
@@ -17,8 +17,10 @@ ActionDispatch::IntegrationTest.class_eval do
   # use this to sign in a user to the api instead of using headers
   # @param [Object] user
   # @return [User]
-  memoize def sign_in(user = create(:user))
+  def sign_in(user = create(:user))
     Api::ApiController.any_instance.expects(:current_user).returns(user)
     user
   end
+
+  memoize :sign_in, :json
 end
