@@ -108,6 +108,8 @@ group :test do
   # Mocking and stubbing library with JMock/SchMock syntax, which allows mocking and stubbing of
   # methods on real (non-mock) classes.
   gem 'mocha', '~> 1.14'
+  # re-run the test when the test fails
+  gem 'minitest-retry', '~> 0.2.2'
 end
 
 group :production do
