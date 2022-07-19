@@ -9,7 +9,7 @@ module Api
     before_action :require_current_user
 
     protected
-      memoize def current_user
+      def current_user
         header = request.headers['Authorization']
         return unless header
 
@@ -23,5 +23,7 @@ module Api
       def require_current_user
         render json: { error: 'invalid api key' }, status: 403 unless current_user
       end
+
+      memoize :current_user
   end
 end
