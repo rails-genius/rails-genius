@@ -133,7 +133,7 @@ GEM
       async
     async-pool (0.3.10)
       async (>= 1.25)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
