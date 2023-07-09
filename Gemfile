@@ -150,7 +150,7 @@ gem 'str_enum', '~> 0.3.0'
 # Rails adapter for AnyCable
 gem 'anycable-rails', '~> 1.3', '>= 1.3.4'
 # A HTTP client and server library.
-gem 'async-http', '~> 0.59.0'
+gem 'async-http', '~> 0.60.0'
 # Provides an adaptor between async-http and faraday.
 gem 'async-http-faraday', '~> 0.11.0'
 # HTTP/REST API client library.
