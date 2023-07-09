@@ -152,7 +152,7 @@ gem 'anycable-rails', '~> 1.3', '>= 1.3.4'
 # A HTTP client and server library.
 gem 'async-http', '~> 0.60.0'
 # Provides an adaptor between async-http and faraday.
-gem 'async-http-faraday', '~> 0.11.0'
+gem 'async-http-faraday', '~> 0.12.0'
 # HTTP/REST API client library.
 gem 'faraday', '~> 2.3'
 # An easy-to-use client library for making requests from Ruby.
