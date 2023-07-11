@@ -146,7 +146,7 @@ gem 'hiredis', '~> 0.6.3'
 # memoize methods invocation
 gem 'memoist', '~> 0.16.2'
 # String enums for Rails
-gem 'str_enum', '~> 0.3.0'
+gem 'str_enum', '~> 0.4.0'
 # Rails adapter for AnyCable
 gem 'anycable-rails', '~> 1.3', '>= 1.3.4'
 # A HTTP client and server library.
