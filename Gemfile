@@ -109,7 +109,7 @@ group :test do
   # Cuprite is a driver for Capybara that allows you to run your tests on a headless Chrome browser
   gem 'cuprite', '~> 0.13'
   # The minitest-spec-rails gem makes it easy to use the \ MiniTest::Spec DSL within your existing Rails test suite.
-  gem 'minitest-spec-rails', '~> 6.1'
+  gem 'minitest-spec-rails', '~> 7.0'
   # Ffaker generates dummy data.
   gem 'ffaker', '~> 2.21'
   # Mocking and stubbing library with JMock/SchMock syntax, which allows mocking and stubbing of
