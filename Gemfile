@@ -114,7 +114,7 @@ group :test do
   gem 'ffaker', '~> 2.21'
   # Mocking and stubbing library with JMock/SchMock syntax, which allows mocking and stubbing of
   # methods on real (non-mock) classes.
-  gem 'mocha', '~> 1.14'
+  gem 'mocha', '~> 2.0'
   # re-run the test when the test fails
   gem 'minitest-retry', '~> 0.2.2'
 end
