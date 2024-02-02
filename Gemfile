@@ -100,7 +100,7 @@ group :development, :test do
   # bundler-audit provides patch-level verification for Bundled apps.
   gem 'bundler-audit', '~> 0.9.1', require: false
   # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
-  gem 'brakeman', '~> 5.2', '>= 5.2.3', require: false
+  gem 'brakeman', '~> 6.0', '>= 6.1.2', require: false
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem 'factory_bot_rails', '~> 6.2'
 end
