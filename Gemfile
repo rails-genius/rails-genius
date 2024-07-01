@@ -138,7 +138,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # A generalized Rack framework for multiple-provider authentication.
 gem 'omniauth', '~> 2.1'
 # Simple, efficient background processing for Ruby.
-gem 'sidekiq', '~> 6.5', '>= 6.5.1'
+gem 'sidekiq', '~> 7.0', '>= 7.3.0'
 # Integrate Tailwind CSS with the asset pipeline in Rails.
 gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'
 # Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O)
