@@ -73,7 +73,7 @@ group :development do
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
   gem 'rubocop-rails_config', '~> 1.10', '>= 1.10.1'
   # ERB Linter tool.
-  gem 'erb_lint', '~> 0.2.0', require: false
+  gem 'erb_lint', '~> 0.7.0', require: false
   # Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.
   gem 'annotate', '~> 3.2'
   # Process manager for applications with multiple components
